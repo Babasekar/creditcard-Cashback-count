@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="logo.png" type="image/png">
+    <link rel="canonical" href="https://midhilesh2003.github.io/CashCount/index.html">
+    <meta name="google-site-verification" content="p2wrjXgGd8_chTaVBvwOWh_6By7oPaoRuWA8NvFboNE" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CashCount helps you calculate the cashback received on your transactions, making it easier to track your savings.">
+    <meta name="keywords" content="CashCount, cashback calculator, credit card rewards, cashback tracking, finance, savings, how to get credit card cashback, calculate credit card cashback">
+    <title>CashCount | Home</title>
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            padding-top: 120px;
+            transition: background-color 0.3s ease;
+        }
+
+        a {
+            color: #ddd;
+            text-decoration: none;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 95%;
+            padding: 15px 20px;
+            background: rgba(17, 25, 40, 0.75);
+            backdrop-filter: blur(16px);
+            border-radius: 15px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+            
+        }
+
+        .logo img {
+            height: 70px;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            color: white;
+            font-size: 35px;
+            font-weight: 600;
+        }
+
+        .navbar-title {
+            font-size: 22px;
+            font-weight: bold;
+            text-align: center;
+            flex-grow: 1;
+            color: rgb(255, 255, 255);
+            font: bold 20px/1 sans-serif;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #ddd;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            background: #ddd;
+            width: 25px;
+            height: 3px;
+            margin: 4px 0;
+        }
+
+        @media (max-width: 768px) {
+
+            body {
+           
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            padding-top: 120px;
+            transition: background-color 0.3s ease;
+            margin-bottom: 120px;
+        }
+            .nav-links {
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: rgba(17, 25, 40, 0.9);
+                overflow: hidden;
+                max-height: 0;
+                opacity: 0;
+                visibility: hidden;
+                transition: max-height 0.5s ease-out, opacity 0.3s ease-out, visibility 0.3s ease-out;
+            }
+
+            .nav-links li {
+                padding: 10px 0;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                max-height: 300px;
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .menu-toggle {
+                display: flex;
+                cursor: pointer;
+            }
+        }
+
+        .search-container {
+            position: relative;
+            margin: 0 auto;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            background: rgba(29, 25, 25, 0.1);
+            color: white;
+            padding: 10px;
+            border-radius: 20px;
+            width: 250px;
+            border: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            background: rgba(61, 62, 64, 0.45);
+        }
+        .card-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+            flex-wrap: wrap;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            opacity: 1;
+        }
+
+        .card-button {
+            background-color:rgba(29, 25, 25, 0.1);
+            border-radius: 15px;
+            width: 200px;
+            height: 120px;
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 0 rgb(0, 0, 0);
+        }
+
+        .card-button img {
+            max-width: 70%;
+            max-height: 70%;
+            border-radius: 0.4rem;
+        }
+
+        .card-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.612);
+        }
+
+        .card-button:active {
+            transform: scale(0.85);
+            box-shadow: none;
+        }
+        footer {
+            background-color: rgba(17, 25, 40, 0.75);
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: #ddd;
+            text-decoration: underline;
+        }
+
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.slider {
+    display: flex;
+    justify-content: space-around;
+    width: 300px;
+    background-color: rgba(0, 0, 0, 0.42);
+    border-radius: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.slider input[type="radio"] {
+    display: none;
+}
+
+
+.slider label {
+    padding: 10px;
+    content: '';
+    color: #fefefe;
+    font-size: 18px;
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 20px;
+    position: relative;
+}
+
+
+.slider input[type="radio"]:checked + label {
+    background-color: rgba(43, 41, 41, 0.349);
+    color: rgb(5, 5, 5);
+}
+
+
+#cardRadio:checked ~ .slider::after {
+    left: 50%;
+}
+
+.bank-section, .card-section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.bank-section.active, .card-section.active {
+    display: block;
+    opacity: 1;
+}
+
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="./">
+                <img src="logo.png" alt="Logo">
+            </a>
+        </div>
+        <div class="navbar-title"><h1>CashCount</h1></div>
+        <ul class="nav-links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="https://mail.google.com/mail/u/0/?fs=1&to=babasekar.in@gmail.com&tf=cm" target="_blank">Contact</a></li>
+        </ul>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Search Input (above slider) -->
+    <div class="search-container">
+        <input type="text" class="search-input" id="searchInput" placeholder="Search Card" oninput="filterCards()">
+    </div>
+
+    <!-- Section Slider (Bank/Card) -->
+    <div class="slider-container">
+        <div class="slider">
+            <input type="radio" name="section" id="bankRadio" checked onclick="toggleSection('bank')">
+            <label for="bankRadio">Bank</label>
+            <input type="radio" name="section" id="cardRadio" onclick="toggleSection('card')">
+            <label for="cardRadio">Card</label>
+        </div>
+    </div>
+
+    <!-- Bank Section -->
+    <div class="bank-section active" id="bankSection">
+        <div class="card-buttons" id="bankCards">
+            
+           
+            <a href="./hdfc/home.html" class="card-button" data-tags="HDFC, HDFC Bank, HDFC Bank Credit Card, HDFC Bank Neo Infinity Credit Card, Neo Infinity, credit card">
+                <img src="assets/HDFC LOGO.png" alt="HDFC Bank">
+            </a>
+            
+            <a href="./sbi/home.html" class="card-button" data-tags="SBI, SBI bank, SBI Cashback, Cashback, credit card">
+                <img src="assets/SBI Logo.png" alt="SBI Bank">
+            </a>
+            <a href="./utkarsh_small_finance/home.html" class="card-button" data-tags="Utkarsh Small Finance Bank, small, finace, supermoney, super.money, bank. FD Card, Fixed Deposit Card, credit card">
+                <img src="assets/Utkarsh Small Finance Bank.webp" alt="Utkarsh Small Finance Bank">
+            </a>
+        </div>
+    </div>
+
+    <!-- Card Section -->
+    <div class="card-section" id="cardSection">
+        <div class="card-buttons" id="cardCards">
+            
+            
+            <a href="sbi/cashback.html" class="card-button" data-tags="SBI, SBI bank, SBI Cashback, Cashback, credit card">
+                <img src="assets/SBI-Cashback.png" alt="SBI Bank">
+            </a>
+            </a>
+            <a href="hdfc/neuinfinity.html" class="card-button" data-tags="HDFC, HDFC Bank, HDFC Bank Credit Card, HDFC Bank Neo Infinity Credit Card, Neo Infinity, credit card">
+                <img src="assets/Tata Neu Infinity.jpg" alt="HDFC Bank Neu Infinity Credit Card">
+            </a>
+            <a href="hdfc/neuplus.html" class="card-button" data-tags="HDFC, HDFC Bank, HDFC Bank Credit Card, HDFC Bank Neo Plus Credit Card, Neo Plus, credit card">
+                <img src="assets/Tata Neu Plus.jpg" alt="HDFC Bank Neu Plus Credit Card">
+            </a>
+            <a href="utkarsh_small_finance/supermoney.html" class="card-button" data-tags="Utkarsh Small Finance Bank, small, finace, supermoney, super.money, bank. FD Card, Fixed Deposit Card, credit card">
+                <img src="assets/SUPERMONEY.webp" alt="Utkarsh Small Finance Bank">
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>For any issues, feedback, reach me out at <a href="https://mail.google.com/mail/u/0/?fs=1&to=babasekar.in@gmail.com&tf=cm" target="_blank">Baba Sekar</a>.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const tagButtons = document.querySelectorAll(".tag");
+    const cardButtons = document.querySelectorAll(".card-button");
+    const searchInput = document.getElementById("searchInput");
+    const bankSection = document.getElementById("bankSection");
+    const cardSection = document.getElementById("cardSection");
+    const bankRadio = document.getElementById("bankRadio");
+    const cardRadio = document.getElementById("cardRadio");
+
+    const lastSection = localStorage.getItem("lastSection") || "bank";
+    toggleSection(lastSection);
+
+    function filterCards() {
+        const searchTerm = searchInput.value.toLowerCase();
+        let selectedTags = Array.from(tagButtons)
+            .filter(tag => tag.classList.contains("active"))
+            .map(tag => tag.dataset.tag);
+
+        cardButtons.forEach(button => {
+            const buttonText = button.innerText.toLowerCase();
+            const buttonTags = button.getAttribute("data-tags").toLowerCase().split(",");
+
+            const matchesSearch = buttonText.includes(searchTerm) || buttonTags.some(tag => tag.includes(searchTerm));
+            const matchesTags = selectedTags.length === 0 || selectedTags.every(tag => buttonTags.includes(tag));
+
+            if (matchesSearch && matchesTags) {
+                button.style.display = "flex";
+            } else {
+                button.style.display = "none";
+            }
+        });
+    }
+
+    searchInput.addEventListener("input", filterCards);
+
+    tagButtons.forEach(tag => {
+        tag.addEventListener("click", function () {
+            tag.classList.toggle("active");
+            filterCards();
+        });
+    });
+
+    function toggleSection(section) {
+        if (section === "bank") {
+            bankSection.classList.add("active");
+            cardSection.classList.remove("active");
+            bankRadio.checked = true;
+            cardRadio.checked = false;
+        } else {
+            cardSection.classList.add("active");
+            bankSection.classList.remove("active");
+            cardRadio.checked = true;
+            bankRadio.checked = false;
+        }
+
+        localStorage.setItem("lastSection", section);
+
+        searchInput.value = "";
+        filterCards();
+    }
+
+    bankRadio.addEventListener("change", () => toggleSection("bank"));
+    cardRadio.addEventListener("change", () => toggleSection("card"));
+
+    filterCards();
+});
+
+function toggleMenu() {
+    const navLinks = document.querySelector(".nav-links");
+    navLinks.classList.toggle("active");
+}
+
+    </script>
+</body>
+</html>
